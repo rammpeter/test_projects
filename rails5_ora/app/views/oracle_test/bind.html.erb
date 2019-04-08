@@ -1,0 +1,18 @@
+<h1>Oracle-Test Bind-Variables</h1>
+
+<%= form_tag(url_for(action: :bind_array)) do %>
+  <%= submit_tag "Exec where with parameter Array and one parameter" %>
+<% end %>
+
+<%= form_tag(url_for(action: :bind_hash)) do %>
+  <%= submit_tag "Exec where with parameter Hash and one parameter" %>
+<% end %>
+
+<%= form_tag(url_for(action: :bind_array_in)) do %>
+  <%= submit_tag "Exec where with parameter Array and multiple parameter in IN-clause" %>
+<% end %>
+
+<%= form_tag(url_for(action: :bind_freeform)) do %>
+  <%= text_area_tag(:freeform, "[\"Tablespace_Name = ?\", 'SYSTEM']", size: "80x10") %><br/>
+  <%= submit_tag "Exec where with your own given parameter (textfield above)" %>
+<% end %>

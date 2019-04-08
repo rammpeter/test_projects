@@ -1,0 +1,10 @@
+<h1>Result for <%= @runmode %></h1>
+
+Parameter of where-method: <%= @sql_param.inspect %><br/>
+Number of result records from SQL: <%= @length %>
+
+<pre style="background-color: lightyellow; border: solid; border-width: 1px; padding: 10px;">
+  <% @plans.each do |plan| %>
+    <%= plan['plan_table_output'] %>
+  <% end %>
+</pre>
