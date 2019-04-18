@@ -1,8 +1,22 @@
-<h1>Result for <%= @runmode %></h1>
+<h1>Result for: <%= @runmode %></h1>
 
-Parameter of where-method: <%= @sql_param.inspect %><br/>
-Number of result records from SQL: <%= @length %>
+<table border="1">
+  <tr>
+    <td>Call-parameter:</td>
+    <td><%= @sql_param.inspect %></td>
+  </tr>
+  <tr>
+    <td>Number of result records from SQL:</td>
+    <td><%= @length %></td>
+  </tr>
+  <tr>
+    <td>Query result</td>
+    <td><%= @result.inspect %></td>
+  </tr>
+</table>
+ <br/>
 
+<h2>Real execution plan</h2>
 <pre style="background-color: lightyellow; border: solid; border-width: 1px; padding: 10px;">
   <% @plans.each do |plan| %>
     <%= plan['plan_table_output'] %>
