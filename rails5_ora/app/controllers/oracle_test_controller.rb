@@ -34,6 +34,23 @@ class OracleTestController < ApplicationController
     render_result
   end
 
+  def find_each_array
+    @length = 0
+    DbaDataFile.find_each(start: 0, batch_size: 1000) do |o|
+      @length += 1
+      @result = o
+    end
+
+    @length = 0
+    DbaDataFile.find_each(start: 0, batch_size: 1000) do |o|
+      @length += 1
+      @result = o
+    end
+
+    render_result
+  end
+
+
   def find_by_sql_array
     @runmode = 'find_by_sql Array'
     @sql_param = ["SELECT * FROM DBA_Tablespaces WHERE TableSpace_Name = ?", 'SYSTEM']
