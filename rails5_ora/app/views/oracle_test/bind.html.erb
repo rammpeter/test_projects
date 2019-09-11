@@ -5,20 +5,24 @@ Try at least twice to ensure all recursive ActiveRecord structure-requests are c
   <legend>ActiveRecord.where with different parameter</legend>
 
   <%= form_tag(url_for(action: :bind_array)) do %>
-    <%= submit_tag "Exec where with parameter Array and one parameter" %>
+    <%= submit_tag "Exec method 'where' on model class with parameter Array and one parameter" %>
   <% end %>
 
   <%= form_tag(url_for(action: :bind_hash)) do %>
-    <%= submit_tag "Exec where with parameter Hash and one parameter" %>
+    <%= submit_tag "Exec method 'where' on model class  with parameter Hash and one parameter" %>
   <% end %>
 
-  <%= form_tag(url_for(action: :bind_array_in)) do %>
-    <%= submit_tag "Exec where with parameter Array and multiple parameter in IN-clause" %>
+  <%= form_tag(url_for(action: :bind_array_collection)) do %>
+    <%= submit_tag "Exec method 'where' on model class  with parameter Array and collection as parameter (fix IN-clause)" %>
+  <% end %>
+
+  <%= form_tag(url_for(action: :bind_hash_collection)) do %>
+    <%= submit_tag "Exec method 'where' on model class  with parameter Hash and collection as parameter (bind collection as one parameter)" %>
   <% end %>
 
   <%= form_tag(url_for(action: :bind_freeform)) do %>
     <%= text_area_tag(:freeform, "[\"Tablespace_Name = ?\", 'SYSTEM']", size: "80x10") %><br/>
-    <%= submit_tag "Exec where with your own given parameter (textfield above)" %>
+    <%= submit_tag "Exec method 'where' on model class with your own given parameter (textfield above)" %>
   <% end %>
 </fieldset>
 <br/>
@@ -27,7 +31,7 @@ Try at least twice to ensure all recursive ActiveRecord structure-requests are c
   <legend>ActiveRecord.find_each with different parameter</legend>
 
   <%= form_tag(url_for(action: :find_each_array)) do %>
-    <%= submit_tag "Exec find_each for batching" %>
+    <%= submit_tag "Exec method 'find_each' on model class for batching" %>
   <% end %>
 
 </fieldset>
@@ -37,11 +41,23 @@ Try at least twice to ensure all recursive ActiveRecord structure-requests are c
   <legend>Direct SQL execution </legend>
 
   <%= form_tag(url_for(action: :find_by_sql_array)) do %>
-    <%= submit_tag "Exec find_by_sql with parameter Array" %>
+    <%= submit_tag "Exec method 'find_by_sql' on model class with parameter Array" %>
+  <% end %>
+
+  <%= form_tag(url_for(action: :find_by_sql_hash)) do %>
+    <%= submit_tag "Exec method 'find_by_sql' on model class with parameter Hash" %>
+  <% end %>
+
+  <%= form_tag(url_for(action: :find_by_sql_bind_separate_string)) do %>
+    <%= submit_tag "Exec method 'find_by_sql' on model class with separate binding of String" %>
+  <% end %>
+
+  <%= form_tag(url_for(action: :find_by_sql_bind_separate_integer)) do %>
+    <%= submit_tag "Exec method 'find_by_sql' on model class with separate binding of Integer" %>
   <% end %>
 
   <%= form_tag(url_for(action: :exec_query_array)) do %>
-    <%= submit_tag "Exec ActiveRecord::Base.connection.exec_query with parameter Array" %>
+    <%= submit_tag "Exec method 'ActiveRecord::Base.connection.exec_query' with parameter Array" %>
   <% end %>
 </fieldset>
 <br/>
