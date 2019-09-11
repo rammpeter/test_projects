@@ -49,11 +49,15 @@ Try at least twice to ensure all recursive ActiveRecord structure-requests are c
   <% end %>
 
   <%= form_tag(url_for(action: :find_by_sql_bind_separate_string)) do %>
-    <%= submit_tag "Exec method 'find_by_sql' on model class with separate binding of String" %>
+    <%= submit_tag "Exec method 'find_by_sql' on model class with separate binding of scalar String value" %>
   <% end %>
 
   <%= form_tag(url_for(action: :find_by_sql_bind_separate_integer)) do %>
-    <%= submit_tag "Exec method 'find_by_sql' on model class with separate binding of Integer" %>
+    <%= submit_tag "Exec method 'find_by_sql' on model class with separate binding of scalar Integer value" %>
+  <% end %>
+
+  <%= form_tag(url_for(action: :find_by_sql_bind_separate_string_collection)) do %>
+    <%= submit_tag "Exec method 'find_by_sql' on model class with separate binding of String Collection" %>
   <% end %>
 
   <%= form_tag(url_for(action: :exec_query_array)) do %>

@@ -58,6 +58,10 @@ class OracleTestController < ApplicationController
     exec_code('find_by_sql bind separate', %{DbaDataFile.find_by_sql("SELECT * FROM DBA_Data_Files WHERE File_ID = :file_id", [ActiveRecord::Relation::QueryAttribute.new(':file_id', 1, ActiveRecord::Type::Value.new)])})
   end
 
+  def find_by_sql_bind_separate_string_collection
+    exec_code('find_by_sql bind separate', %{DbaTablespace.find_by_sql("SELECT * FROM DBA_Tablespaces WHERE TableSpace_Name IN (:name1, :name2)", [ActiveRecord::Relation::QueryAttribute.new(':name', 'SYSTEM', ActiveRecord::Type::Value.new), ActiveRecord::Relation::QueryAttribute.new(':name', 'SYSAUX', ActiveRecord::Type::Value.new)])})
+  end
+
   def exec_query_array
     # Syntax starting with Rails 4.2
     # @sql_param = [ ActiveRecord::ConnectionAdapters::Column.new(':name', nil, ActiveRecord::Type::Value.new),'SYSTEM' ]
