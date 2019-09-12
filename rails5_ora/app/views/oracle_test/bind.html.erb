@@ -1,5 +1,4 @@
 <h1>Oracle: test bind-variables with model-class "DbaTablespace"</h1>
-Try at least twice to ensure all recursive ActiveRecord structure-requests are cached!<br/><br>
 
 <fieldset>
   <legend>ActiveRecord.where with different parameter</legend>
@@ -18,11 +17,6 @@ Try at least twice to ensure all recursive ActiveRecord structure-requests are c
 
   <%= form_tag(url_for(action: :bind_hash_collection)) do %>
     <%= submit_tag "Exec method 'where' on model class  with parameter Hash and collection as parameter (bind collection as one parameter)" %>
-  <% end %>
-
-  <%= form_tag(url_for(action: :bind_freeform)) do %>
-    <%= text_area_tag(:freeform, "[\"Tablespace_Name = ?\", 'SYSTEM']", size: "80x10") %><br/>
-    <%= submit_tag "Exec method 'where' on model class with your own given parameter (textfield above)" %>
   <% end %>
 </fieldset>
 <br/>
@@ -65,4 +59,14 @@ Try at least twice to ensure all recursive ActiveRecord structure-requests are c
   <% end %>
 </fieldset>
 <br/>
+<fieldset>
+  <legend>Free definition of access method</legend>
+
+  <%= form_tag(url_for(action: :bind_freeform)) do %>
+    <%= text_area_tag(:freeform, "Hugo.where([\"Name = ?\", 'Name 1']).all", size: "80x10") %><br/>
+    <%= submit_tag "Exec Ruby code (textfield above)" %>
+  <% end %>
+
+
+</fieldset>
 
