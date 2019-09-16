@@ -1,0 +1,20 @@
+source 'https://rubygems.org'
+#git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+#ruby '2.5.3'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 6.0.0'
+gem 'activerecord-oracle_enhanced-adapter'
+# Use Puma as the app server
+gem 'puma'
+# Use SCSS for stylesheets
+gem 'sass-rails'
+gem 'coffee-rails'
+
+group :development do
+  gem 'listen'
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
