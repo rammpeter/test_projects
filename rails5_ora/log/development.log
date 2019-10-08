@@ -12053,3 +12053,62 @@ Completed 200 OK in 263ms (Views: 80.1ms | ActiveRecord: 154.9ms)
 
 
 routes.rb: Setting routes for every controller action
+routes.rb: Setting routes for every controller action
+routes.rb: Setting routes for every controller action
+Started GET "/" for 0:0:0:0:0:0:0:1 at 2019-09-16 11:49:56 +0200
+Started GET "/" for 0:0:0:0:0:0:0:1 at 2019-09-16 11:49:57 +0200
+Processing by WelcomeController#index as HTML
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (6.6ms)
+  Rendered welcome/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 1594ms (Views: 1567.8ms)
+
+
+Completed 200 OK in 1595ms (Views: 1572.2ms)
+
+
+Started GET "/oracle_test/bind" for 0:0:0:0:0:0:0:1 at 2019-09-16 11:50:00 +0200
+Processing by OracleTestController#bind as HTML
+  Rendering oracle_test/bind.html.erb within layouts/application
+  Rendered oracle_test/bind.html.erb within layouts/application (100.7ms)
+Completed 200 OK in 235ms (Views: 225.5ms)
+
+
+Started POST "/oracle_test/bind_array" for 0:0:0:0:0:0:0:1 at 2019-09-16 11:50:05 +0200
+Processing by OracleTestController#bind_array as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yKIGYYVo5Psqg7T7Ofexeh5WrROuOVFAL2lFf36zx8mYA4Za7TfSynwxdKM0e0QjDcnIx+51kmb4nlD3sG2GbQ==", "commit"=>"Exec method 'where' on model class with parameter Array and one parameter"}
+  [1m[35m (23.4ms)[0m  [1m[35mDROP TABLE Hugo[0m
+  ↳ app/controllers/oracle_test_controller.rb:65
+  [1m[35m (36.1ms)[0m  [1m[35mCREATE TABLE Hugo (ID NUMBER(8) PRIMARY KEY, Name VARCHAR2(200))[0m
+  ↳ app/controllers/oracle_test_controller.rb:69
+  [1m[35m (31.8ms)[0m  [1m[32mINSERT INTO Hugo SELECT Level, 'Name '||Level FROM DUAL CONNECT BY Level <= 10[0m
+  ↳ app/controllers/oracle_test_controller.rb:70
+  [1m[36mHugo Load (43.4ms)[0m  [1m[34mSELECT  "HUGO".* FROM "HUGO" WHERE (Name = 'Name 3' ) FETCH FIRST :a1 ROWS ONLY[0m  [["LIMIT", 11]]
+  ↳ app/controllers/oracle_test_controller.rb:74
+  [1m[36mColumn definitions (83.3ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'PANORAMA_TEST' AND cols.table_name = 'HUGO' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  ↳ app/controllers/oracle_test_controller.rb:74
+  [1m[36mtables (15.8ms)[0m  [1m[34mSELECT DECODE(table_name, UPPER(table_name), LOWER(table_name), table_name) FROM all_tables WHERE owner = SYS_CONTEXT('userenv', 'current_schema') AND secondary = 'N'[0m
+  ↳ app/controllers/oracle_test_controller.rb:74
+  [1m[36mviews (17.3ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  ↳ app/controllers/oracle_test_controller.rb:74
+  [1m[36msynonyms (208.7ms)[0m  [1m[34mSELECT synonym_name, table_owner, table_name, db_link FROM all_synonyms where owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  ↳ app/controllers/oracle_test_controller.rb:74
+  [1m[36mSequence (3.5ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'PANORAMA_TEST' and us.sequence_name = upper('HUGO_seq')[0m
+  ↳ app/controllers/oracle_test_controller.rb:74
+  [1m[36mPrimary Key (13.1ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'PANORAMA_TEST' AND c.table_name = 'HUGO' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  ↳ app/controllers/oracle_test_controller.rb:74
+  [1m[36mHugo Load (3.1ms)[0m  [1m[34mSELECT  "HUGO".* FROM "HUGO" WHERE (Name = 'Name 3' ) FETCH FIRST :a1 ROWS ONLY[0m  [["LIMIT", 11]]
+  ↳ app/controllers/oracle_test_controller.rb:79
+  [1m[35mSQL (58.2ms)[0m  [1m[34mSELECT * FROM table(DBMS_XPLAN.DISPLAY_CURSOR(NULL, 0, 'TYPICAL, PEEKED_BINDS'))[0m
+  ↳ app/controllers/oracle_test_controller.rb:81
+  [1m[35m (54.4ms)[0m  [1m[35mDROP TABLE Hugo[0m
+  ↳ app/controllers/oracle_test_controller.rb:83
+  Rendering oracle_test/bind_xy_result.html.erb within layouts/application
+  [1m[36mCACHE Hugo Load (0.1ms)[0m  [1m[34mSELECT  "HUGO".* FROM "HUGO" WHERE (Name = 'Name 3' ) FETCH FIRST :a1 ROWS ONLY[0m  [["LIMIT", 11]]
+  ↳ app/views/oracle_test/bind_xy_result.html.erb:11
+  Rendered oracle_test/bind_xy_result.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 2500ms (Views: 111.5ms | ActiveRecord: 592.3ms)
+
+

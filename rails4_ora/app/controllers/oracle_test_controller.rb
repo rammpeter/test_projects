@@ -46,6 +46,14 @@ class OracleTestController < ApplicationController
     exec_code('find_by_sql bind separate', %{Hugo.find_by_sql("SELECT * FROM Hugo WHERE Name IN (:name1, :name2)", [ [ActiveRecord::ConnectionAdapters::Column.new(':name1', nil, ActiveRecord::Type::Value.new), 'Name 1'], [ActiveRecord::ConnectionAdapters::Column.new(':name2', nil, ActiveRecord::Type::Value.new), 'Name 2'] ])})
   end
 
+  def find_by_sql_easy
+    exec_code('find_by_sql_easy (Own method at class ApplicationRecord)', %{Hugo.find_by_sql_easy("SELECT * FROM Hugo WHERE ID = ? AND Name = ?", [2, 'Name 2'])})
+  end
+
+  def find_by_sql_easy_collection
+    exec_code('find_by_sql_easy with collections (Own method at class ApplicationRecord)', %{Hugo.find_by_sql_easy("SELECT * FROM Hugo WHERE ID IN (?) OR Name = ?", [[1, 2, 3], 'Name 2'])})
+  end
+
   def exec_query_array
     # Syntax starting with Rails 4.2
     # @sql_param = [ ActiveRecord::ConnectionAdapters::Column.new(':name', nil, ActiveRecord::Type::Value.new),'SYSTEM' ]

@@ -9,8 +9,8 @@ gem 'activerecord-oracle_enhanced-adapter'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
-gem 'sass-rails'
-gem 'coffee-rails'
+#gem 'sass-rails'
+#gem 'coffee-rails'
 
 group :development do
   gem 'listen'

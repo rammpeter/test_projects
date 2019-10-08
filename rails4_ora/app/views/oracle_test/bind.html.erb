@@ -55,6 +55,16 @@ Rails-Version = <%= Rails.version %>, Oracle_Enhanced-Adapter = <%= Gem.loaded_s
     <%= submit_tag "Exec method 'find_by_sql' on model class with separate binding of String Collection" %>
   <% end %>
 
+  <br/>
+  <%= form_tag(url_for(action: :find_by_sql_easy)) do %>
+    <%= submit_tag "Exec method 'find_by_sql_easy' on model class with '?' as bind alias and Array of parameter" %>
+  <% end %>
+
+  <%= form_tag(url_for(action: :find_by_sql_easy_collection)) do %>
+    <%= submit_tag "Exec method 'find_by_sql_easy' on model class with '?' as bind alias and Array of parameters including Sub-Arrays for Collections" %>
+  <% end %>
+  <br/>
+
   <%= form_tag(url_for(action: :exec_query_array)) do %>
     <%= submit_tag "Exec method 'ActiveRecord::Base.connection.exec_query' with parameter Array" %>
   <% end %>
