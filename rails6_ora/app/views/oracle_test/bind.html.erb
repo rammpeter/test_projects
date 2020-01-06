@@ -23,6 +23,16 @@ Rails-Version = <%= Rails.version %>, Oracle_Enhanced-Adapter = <%= Gem.loaded_s
 <br/>
 
 <fieldset>
+  <legend>ActiveRecord.find_by_xxx (possibly bad smelling code)</legend>
+
+  <%= form_tag(url_for(action: :find_by)) do %>
+    <%= submit_tag "Exec method 'find_by_name' on model class" %>
+  <% end %>
+
+</fieldset>
+<br/>
+
+<fieldset>
   <legend>ActiveRecord.find_each with different parameter</legend>
 
   <%= form_tag(url_for(action: :find_each_array)) do %>

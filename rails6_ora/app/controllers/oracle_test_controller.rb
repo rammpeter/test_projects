@@ -22,6 +22,10 @@ class OracleTestController < ApplicationController
     exec_code('Free Ruby code', params[:freeform])
   end
 
+  def find_by
+    exec_code('find_by_name', %{Hugo.find_by_name('Name 1')})
+  end
+
   def find_each_array
     exec_code('Find each', %{Hugo.find_each(start: 0, batch_size: 1000)})
   end
