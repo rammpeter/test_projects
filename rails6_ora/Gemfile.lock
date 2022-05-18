@@ -63,6 +63,7 @@ GEM
     concurrent-ruby (1.1.5)
     crass (1.0.5)
     erubi (1.9.0)
+    ffi (1.11.3)
     ffi (1.11.3-java)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -82,10 +83,18 @@ GEM
     mimemagic (0.3.3)
     mini_mime (1.0.2)
     minitest (5.13.0)
+    nio4r (2.5.2)
     nio4r (2.5.2-java)
-    nokogiri (1.10.7-java)
+    nokogiri (1.13.6-java)
+      racc (~> 1.4)
+    nokogiri (1.13.6-x86_64-linux)
+      racc (~> 1.4)
+    puma (4.3.1)
+      nio4r (~> 2.0)
     puma (4.3.1-java)
       nio4r (~> 2.0)
+    racc (1.6.0)
+    racc (1.6.0-java)
     rack (2.0.8)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -128,11 +137,14 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     thor (1.0.1)
+    thread_safe (0.3.6)
     thread_safe (0.3.6-java)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
     tzinfo-data (1.2019.3)
       tzinfo (>= 1.0.0)
+    websocket-driver (0.7.1)
+      websocket-extensions (>= 0.1.0)
     websocket-driver (0.7.1-java)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
@@ -140,6 +152,7 @@ GEM
 
 PLATFORMS
   java
+  x86_64-linux
 
 DEPENDENCIES
   activerecord-oracle_enhanced-adapter
